@@ -1,4 +1,4 @@
-# anchor-r-shared
+# anchor-r
 
 Several r packages that provide utility functions for the output of the Anchor platform
 
@@ -7,6 +7,7 @@ Several r packages that provide utility functions for the output of the Anchor p
 | anchor-r |  general functions for anchor output  |
 | anchor-r-features | for the feature-tables CSV exports (viewing, training learners, etc.)
 | anchor-r-nuclei | for nuclei segmentation pipelines |
+| anchor-r-experiment | for conveniently accessing the output of anchor experiments |
 
 ## Documentation
 
