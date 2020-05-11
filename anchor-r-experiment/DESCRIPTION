@@ -1,0 +1,9 @@
+Package: anchor.experiment
+Title: Loading/saving/manipulating output from Anchor experiments
+Version: 1.0
+Date: 2015-08-09
+Author: Owen Feehan
+Maintainer: Owen Feehan <fake.address@nospam.com>
+Description: This package contains functions for interacting with the output of Anchor experiments
+Imports: 
+  R6

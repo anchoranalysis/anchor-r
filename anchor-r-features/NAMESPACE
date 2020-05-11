@@ -1,0 +1,62 @@
+export (
+  trainLDA,
+  predict.anchorlda,
+  coef.anchorlda,
+  trainSVM_Linear,
+  trainSVM_Radial,
+  trainRandomForest,
+  removeFeaturesMatch,
+  removeFeaturesColumnNames,
+  removeFeaturesWithNA,
+  removeFeaturesWithNAN,
+  removeFeaturesWithZeroSd,
+  standardizeByGroup,
+  printRankedFeatures,
+  crossValidateClassifier,
+  printConfusionMatrix,
+  printRatioCorrectPredictions,
+  ratioCorrectPredictions,
+  createLabelPositiveNegative,
+  printFeatureNames,
+  plotFeatureHistogram,
+  plotFeatureHistogramForEachGroup,
+  readFeaturesCSV,
+  readAndCombineFeaturesCSV,
+  plotClassifierTwoFeatures,
+  removeObjectsWithAbsoluteValueLessThan,
+  removeFeaturesExceptColumnNames,
+  removeObjectsWithinRange,
+  explicitPredict.anchorlda,
+  writeLDAModelKeyValueParams,
+  writeSVMModel,
+  rebalanceLabelledFeatures,
+  plotFeatureCorrelationHeatmap,
+  removeFeaturesHighlyCorrelated,
+  centerScaleFrame,
+  stopIfNonNumericFeature,
+  stopIfFeaturesAreMissing,
+  predictAsFactor,
+  printMislabelled,
+  trainSVM_Linear_Caret,
+  trainSVM_Linear_Caret_Grid,
+  createTrainingSet,
+  createClassifier,
+  loadFeatures,
+  mergeFeaturesWithAnnotations,
+  plotSvm,
+  displayFeatureWithLabels,
+  displayTwoFeaturesWithLabels,
+  displayFeaturesFor,
+  convertStringsToFactor,
+  convertStringsToInt,
+  predictLabel
+) 
+importFrom("MASS", lda)
+importFrom("e1071", svm, write.svm)
+importFrom("randomForest", randomForest)
+importFrom("anchor", plotHistogramFromFrequencyTable, plotHistogramFromFrequencyTableStacked, has.nan)
+importFrom("ggplot2", qplot, scale_fill_gradient2)
+importFrom("reshape2", melt)
+import("caret");
+import("gsubfn");
+

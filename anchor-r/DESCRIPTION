@@ -1,0 +1,17 @@
+Package: anchor
+Title: Integration with Anchor image analysis-platform
+Version: 1.0
+Date: 2015-06-21
+Author: Owen Feehan
+Maintainer: Owen Feehan <fake.address@nospam.com>
+Description: This package contains functions for visualizing and modelling data produced by the Anchor image analysis platform.
+License: GPL-3
+Imports: 
+  ggplot2,
+  scales,
+  stringr,
+  LPCM,
+  mclust,
+  XML,
+  MASS,
+  colorspace

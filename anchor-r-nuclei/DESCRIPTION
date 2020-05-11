@@ -1,0 +1,13 @@
+Package: anchor.nuclei
+Title: Nuclei Segmentation
+Version: 1.0
+Date: 2015-08-09
+Author: Owen Feehan
+Maintainer: Owen Feehan <fake.address@nospam.com>
+Description: This package contains functions for helping image-analysis of DAPI (or similarly-stained) nuclei
+License: GPL-3
+Imports: 
+  XML,
+  anchor,
+  anchor.features,
+  caret

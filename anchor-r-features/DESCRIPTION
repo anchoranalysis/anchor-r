@@ -1,0 +1,17 @@
+Package: anchor.features
+Title: Features
+Version: 1.0
+Date: 2015-08-09
+Author: Owen Feehan
+Maintainer: Owen Feehan <fake.address@nospam.com>
+Description: This package contains functions for manipulating anchor-features
+License: GPL-3
+Imports: 
+  e1071,
+  MASS,
+  anchor,
+  ggplot2,
+  caret,
+  reshape2,
+  randomForest,
+  gsubfn

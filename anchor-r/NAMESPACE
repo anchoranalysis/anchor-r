@@ -1,0 +1,28 @@
+export (
+  createHistogramPlot,
+  displayHistogramFromFile,
+  displayHistogramsFromManyFiles,
+  readHistogram,
+  plotHistogramFromFrequencyTable,
+  multiplotPaged,
+  findSingleExtentCluster,
+  plotHistogramComparedWithGaussian,
+  plotHistogramComparedWithGaussianForEachGroup,
+  paramsFromXml,
+  intensityRangeFromParams,
+  addFeatureIntensityClusterRange,
+  addFeature,
+  plotHistogramFromFrequencyTableStacked,
+  has.nan,
+  addFeatureFittedGaussian,
+  addFeatureGroup,
+  writeCSV,
+  writeKeyValueParamsFromNode
+) 
+importFrom("stringr", str_count)
+importFrom("ggplot2", ggplot, aes, geom_histogram, geom_density, geom_bar, geom_point, ggtitle, coord_cartesian, scale_y_continuous, theme, element_text, xlab, stat_function, xlim, ylim)
+importFrom("scales", scientific)
+importFrom("LPCM", ms)
+importFrom("mclust", Mclust,mclustBIC)
+importFrom("XML", newXMLNode, saveXML, xmlToList, xmlParse)
+importFrom("MASS",fitdistr)
