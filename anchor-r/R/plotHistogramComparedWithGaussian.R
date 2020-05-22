@@ -91,8 +91,6 @@ plotHistogramComparedWithGaussianForEachGroup <- function( groups, listParams, l
   
   numRows = ceiling(numGroups / numCols);
   
-  #pdf(sprintf("figureOut/nucModel%s.pdf",featureName), height=4, width=8);
-  
   par(mfrow=c(numRows,numCols),oma = c(0, 0, 3, 0),mar = c(3,3,3,1));
   
   for( set in groups ) {
@@ -129,6 +127,4 @@ plotHistogramComparedWithGaussianForEachGroup <- function( groups, listParams, l
   mtext(featureName, outer = TRUE, cex = 1.5)
   
   par(mfrow=c(1,1));
-  
-  #dev.off();
 }
