@@ -25,7 +25,5 @@ printConfusionMatrix <- function( groundTruthLabel, predictedLabel ) {
   #    groundTruthLabel:  the ground truth (vector of factors)
   #    predictedLabel:    the predictions of a classifier (vector of factors)
   #
-  #confusionMat = table(predictedLabel, groundTruthLabel);
-  #print(confusionMat);
   print( confusionMatrix( predictedLabel, groundTruthLabel ) )
 }
