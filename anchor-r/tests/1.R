@@ -10,19 +10,11 @@ test.createhistogram <- function()
     checkException(extractHist( path, 100 ), 'Unable to extractHist with a maxBinSize of 100')
 }
  
-#test.deactivation <- function()
-#{
-#  DEACTIVATED('Deactivating this test function')
-#}
-
-
 test.guessimagedepth <- function() {
 	checkEqualsNumeric( guessImageDepth( 234 ), 8 );
 	checkEqualsNumeric( guessImageDepth( 256 ), 12 );
 	checkEqualsNumeric( guessImageDepth( 12256 ), 16 );
 }
-
-
 
 test.clusteringMeanShift <- function() {
   # We create artificial data
