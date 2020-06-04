@@ -49,7 +49,6 @@ writeLDAModelKeyValueParams <- function( folderPath, model, additionalCoefficien
   if (!is.null(additionalCoefficient)) {
     # HARD-CODED FOR NOW
     # We disallowing touching pairs
-    #addFeature('pair.areTouching',10000000,top);
     addFeature(additionalCoefficient$featureName,additionalCoefficient$coefficient,top);
   }
   

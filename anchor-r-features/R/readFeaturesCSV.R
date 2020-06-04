@@ -56,7 +56,6 @@ readFeaturesCSV <- function( csvpath, colClasses=NA ) {
   }
   
   printf("There are %d features\n", length(allFeatureNames) );
-  #print(allFeatureNames);
 
   features
 }

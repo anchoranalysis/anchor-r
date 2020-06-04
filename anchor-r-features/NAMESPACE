@@ -49,7 +49,8 @@ export (
   displayFeaturesFor,
   convertStringsToFactor,
   convertStringsToInt,
-  predictLabel
+  predictLabel,
+  predictSimple
 ) 
 importFrom("MASS", lda)
 importFrom("e1071", svm, write.svm)

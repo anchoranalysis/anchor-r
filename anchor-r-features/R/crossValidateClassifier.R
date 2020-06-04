@@ -33,45 +33,29 @@ crossValidateClassifier <- function( features, label, createClassifierFunc, pred
   
   #Create 10 equally size folds
   folds <- cut(seq(1,nrow(features)),breaks=10,labels=FALSE)
-  
-  
-  #allPredictions = rep(NA,length(label));
+
   allPredictions = label;
   for(i in 1:10) {
-    #Segement your data by fold using the which() function 
+    # Split data into training and test
     testIndexes = indexesRandomlyMapped[which(folds==i,arr.ind=TRUE)];
     testData = features[testIndexes, ]
     trainData = features[-testIndexes, ]
-    #Use the test and train data partitions however you desire...
-    
+
     labelTest = label[testIndexes];
     labelTrain = label[-testIndexes];
-    
-    #sout = svm( labelTrain ~ ., data=trainData, kernel="linear", scale=FALSE );
-    #pout = predict( sout, trainData )
-    #poutF = mapLevels( as.integer(pout) );
-    #browser()
-    
+
     # Train the classifier on the training data
-    g = createClassifierFunc( trainData, labelTrain );
+    classifier = createClassifierFunc( trainData, labelTrain );
     
     # Make predictions on the test data
-    predictions = predictFunc(g, testData, label);
-    
-    # Convert predictions back into a factor form (SVM)
-    
+    predictions = predictFunc(classifier, testData, label);
     
     printRatioCorrectPredictions( labelTest, predictions );
-    
-    #stopifnot( any(is.na(predictions))==FALSE );
-    #stopifnot( all(is.na(allPredictions[testIndexes]))==TRUE );
-    
-    
+
     allPredictions[testIndexes] = predictions;
   }
   
   stopifnot( any(is.na(allPredictions))==FALSE );
-  
-  #factor(allPredictions);
+
   allPredictions
 }
