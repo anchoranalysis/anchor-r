@@ -35,7 +35,7 @@
 
 
 
-createNucleiMergeTrainingSet <- function( features, standardize=TRUE, minSizeTrainingSet=10, cutoffCorrelation=0.9 ) {
+createNucleiMergeTrainingSet <- function( features, minSizeTrainingSet=10, cutoffCorrelation=0.9 ) {
   #
   # Takes features from the nucei:
   #   1. Adds labels for whether to MERGE (1) or DO_NOT_MERGE (0)
@@ -89,10 +89,8 @@ createNucleiMergeTrainingSet <- function( features, standardize=TRUE, minSizeTra
     features,
     label,
     featuresTraining,
-    scaling,
     cutoffCorrelation,
     minSizeTrainingSet,
-    standardize,
     rebalance=TRUE
   );
   

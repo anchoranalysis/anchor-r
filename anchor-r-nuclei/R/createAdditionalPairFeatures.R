@@ -45,24 +45,18 @@ createPairFunctionFeature <- function( features, featureNameNew, featureName, ag
 # Private
 # Minimum of the ratio x:y and y:x
 minRatio <- function( x, y ) {
-  #x = vec[1];
-  #y = vec[2];
   min( c(x/y,y/x) );
 }
 
 # Private
 # Maximum of the ratio x:y and y:x
 maxRatio <- function( x, y ) {
-  #x = vec[1];
-  #y = vec[2];
   max( c(x/y,y/x) );
 }
 
 # Private
 # Maximum of the ratio x:y and y:x
 meanRatio <- function( x, y ) {
-  #x = vec[1];
-  #y = vec[2];
   mean( c(x/y,y/x) );
 }
 
@@ -112,7 +106,6 @@ createAdditionalPairFeatures <- function( features ) {
   features = createPairFeaturesForName( features, 'axisRatioMoments' );
   
   features = createDiffFeaturesForName( features, 'axisEccentricity' );
-  features = createDiffFeaturesForName( features, 'gradientEccentricity' );
   
   features = createPairFeaturesForName( features, 'axisWidthMIP.0' );
   features = createPairFeaturesForName( features, 'axisWidthMIP.1' );
@@ -151,16 +144,6 @@ createAdditionalPairFeatures <- function( features ) {
   features = createPairFeaturesForName( features, 'shapeRegularityCenterSlice' );
   features = createPairFeaturesForName( features, 'objectRadiusStdDev' );
   features = createPairFeaturesForName( features, 'objectRadiusCov' );
-  
-  
-#   features$pair.objectEdgeIntersectionIntensityDiff =
-#     abs(features$pair.objectEdgeIntersectionIntensity.6 - features$pair.objectEdgeIntersectionIntensity.5)
-#   + abs(features$pair.objectEdgeIntersectionIntensity.5 - features$pair.objectEdgeIntersectionIntensity.4)
-#   + abs(features$pair.objectEdgeIntersectionIntensity.4 - features$pair.objectEdgeIntersectionIntensity.3)
-#   + abs(features$pair.objectEdgeIntersectionIntensity.3 - features$pair.objectEdgeIntersectionIntensity.2)
-#   + abs(features$pair.objectEdgeIntersectionIntensity.2 - features$pair.objectEdgeIntersectionIntensity.1);
-  
-  #features = createPairFeaturesForName( features, 'maxSliceArea' );
-  
+
   features;
 }

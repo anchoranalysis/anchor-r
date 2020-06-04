@@ -58,6 +58,5 @@ createAdditionalOverlapFeatures <- function( features ) {
   features$merged.minOverlapWithAnnotation = pmax( features$merged.minOverlapWithPositiveAnnotation, features$merged.minOverlapWithNegativeAnnotation );
   
   features$span.deltaOverlap = features$merged.minOverlapWithAnnotation - features$pair.minOverlapWithAnnotation;
-  #features$span.deltaOverlap = features$merged.minOverlapWithPositiveAnnotation - features$pair.minOverlapWithPositiveAnnotation;
   features;
 }

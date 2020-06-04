@@ -42,12 +42,7 @@ createDiffFunctionFeature <- function( features, featureNameNew, featureName, ag
   if (!mergedName %in% colnames(features)) {
     stop( sprintf("Cannot find feature '%s'", mergedName));
   }
-  
-  #if (anyNA(features[,firstName]) || anyNA(features[,secondName])) {
-  #  features[,diffName] = rep(NA,nrow(features));
-  #  return(features);
-  #}
-  
+
   features[,diffName] = features[,mergedName] - mapply( aggFunction, features[,firstName], features[,secondName] );
   features;
 }
@@ -92,8 +87,6 @@ createAdditionalDiffFeatures <- function( features ) {
   #   modified features
   #
   features = createDiffFeaturesForName( features, 'axisEccentricity' );
-  features = createDiffFeaturesForName( features, 'gradientEccentricity' );
-  
   
   features = createDiffFeaturesForName( features, 'axisRatioEllipsoid' );
   features = createDiffFeaturesForName( features, 'axisRatioEllipsoidAll' );
@@ -136,9 +129,6 @@ createAdditionalDiffFeatures <- function( features ) {
   features = createDiffFeaturesForName( features, 'objectRadiusStdDev' );
   features = createDiffFeaturesForName( features, 'objectRadiusCov' );
   
-  #features = createDiffFeaturesForName( features, 'ratioAddedVoxelsAfterClosing.1' );
-  #features = createDiffFeaturesForName( features, 'ratioAddedVoxelsAfterClosing.2' );
-  #features = createDiffFeaturesForName( features, 'ratioAddedVoxelsAfterClosing.3' );
   features = createDiffFeaturesForName( features, 'ratioAddedVoxelsAfterClosing.4' );
   
   features;

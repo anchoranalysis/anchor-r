@@ -15,7 +15,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-createNucleiObjFilterTrainingSet <- function( features, standardize=TRUE, minSizeTrainingSet=10, minOverlap=0.9 ) {
+createNucleiObjFilterTrainingSet <- function( features, minSizeTrainingSet=10, minOverlap=0.9 ) {
   #
   # Takes features from the nucei:
   #   1. Adds labels for whether to DISCARD or KEEP
@@ -42,13 +42,6 @@ createNucleiObjFilterTrainingSet <- function( features, standardize=TRUE, minSiz
   #   1 - KEEP
   #
   # Let's remove any features with a deltaOverlap of less than 0.1.... these are UNSURE features
-  #features = removeObjectsWithAbsoluteValueLessThan( features, 'maxOverlapWithAllAnnotations', 0.9 );
-  
-  
-  #features = removeObjectsWithinRange( features, 'pair.numTouchingVoxels', 10, 40 );
-  #features = removeObjectsWithinRange( features, 'first.numOverlapWithAnnotation', 2, 100000000000 );
-  #features = removeObjectsWithinRange( features, 'second.numOverlapWithAnnotation', 2, 100000000000 );
-  #features = removeObjectsWithinRange( features, 'merged.numOverlapWithPositiveAnnotation', 0, 0 );
   
   # We want to keep anything which has an overlap>=0.9 with a specific positive annotation, the rest we label as unwanted
   combinedLabelVal = features$maxOverlapWithPositiveAnnotation - minOverlap;
@@ -59,21 +52,13 @@ createNucleiObjFilterTrainingSet <- function( features, standardize=TRUE, minSiz
   
   # We remove features we don't want included in the traning
   featuresTraining = removeFeaturesForTraining(features);
-  # printFeatureNames(features)
-  
+
   featuresTraining = removeFeaturesWithNA(featuresTraining);
   featuresTraining = removeFeaturesWithNAN(featuresTraining);
   featuresTraining = removeFeaturesWithZeroSd(featuresTraining);
   
   stopifnot( !has.nan(featuresTraining) );
-  
-  if (standardize) {
-    # Standardize variables
-    featIn = featuresTraining;
-    featuresTraining = standardizeZScore( featuresTraining );
-  }
-  
-  
+
   # If there's major imbalance we oversample from the under-represented class, so there are as many samples
   #  as the large class
   rebalanced = rebalanceLabelledFeatures( features, label, 3, additionalFeatures=featuresTraining );
