@@ -35,13 +35,6 @@ plotHistogramFromFrequencyTableStacked <- function( freqTable, maxHistBin, minHi
   colnames(freqTable)[2] = 'count';  
   colnames(freqTable)[3] = 'fill';
 
-  #if (is.null(fill)) {
-  #  freqTable$fill = sample( c(1,2,3), nrow(freqTable), replace=TRUE);
-  #  freqTable$fill = factor(freqTable$fill);
-  #}
-  #+ geom_bar(stat='identity')
-  #browser();
-  
   stopifnot(!is.na(freqTable));
   p = (ggplot(data=freqTable,mapping=aes(x=val,y=count,fill=fill))
        + geom_histogram(stat='identity')  

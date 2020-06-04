@@ -96,8 +96,6 @@ addFeatureIntensityClusterRange <- function(featureName,intensityClusterRange,pa
   addFeature( paste(featureName,"_max",sep=''),intensityClusterRange$max,parent);
   addFeature( paste(featureName,"_mean",sep=''),intensityClusterRange$mean,parent);
   addFeature( paste(featureName,"_sd",sep=''),intensityClusterRange$sd,parent);
-  #addFeature( paste(featureName,"_peakMax",sep=''),intensityClusterRange$peakMax,parent);
-  #addFeature( paste(featureName,"_peakMode",sep=''),intensityClusterRange$peakMode,parent);
 }
 
 
@@ -144,8 +142,7 @@ writeKeyValueParamsRange <- function( pathFolderOut, dataset, intensityClusterRa
 writeKeyValueParamsRangeSingle <- function( pathFolderOut, dataset, clusterName, cluster) {
   
   cat( 'WRITING: ', dataset,'\n' );
-  #printf("rangeHigh\t\tmin=%f\tmax=%f\ttop=%f\n", rangeMin, rangeMax, rangeTop );
-  
+
   top = newXMLNode("properties");
   
   addFeatureIntensityClusterRange(clusterName,cluster, top );
@@ -166,11 +163,8 @@ writeKeyValueParamsIntensityRangeAndExtnt <- function(
 ) {
   
   cat( 'WRITING: ', dataset,'\n' );
-  #printf("range\t\tmin=%f\tmax=%f\n", intensityRangeMin, intensityRangeMax );
 
   top = newXMLNode("properties");
-  
-  #addFeatureRange(intensityName,intensityRangeMin, intensityRangeMax, intensityRangeTop, top );
   
   addFeatureIntensityClusterRange("intensityHigh",intensityClusterRangeHigh, top );
   addFeatureIntensityClusterRange("intensityLow",intensityClusterRangeLow, top );
@@ -180,14 +174,6 @@ writeKeyValueParamsIntensityRangeAndExtnt <- function(
   addFeatureGaussianVector('volume',gaussianExtnt,top);
   addFeatureGaussianVector('maxSliceArea',gaussianExtnt,top,shiftIndex=4);
   addFeatureGaussianVector('sumIntensity',gaussianExtnt,top);
-  
-  #addFeatureFittedGaussian('volume',features$volume,"normal",top);
-  #addFeatureFittedGaussian('maxSliceArea',features$maxSliceArea,"normal",top);
-  #addFeatureFittedGaussian('sumIntensity',features$sumIntensity,"normal",top);
-  
-  #addFeatureGroup('volume',features$volume,top);
-  #addFeatureGroup('maxSliceArea',features$maxSliceArea,top);
-  #addFeatureGroup('sumIntensity',features$sumIntensity,top);	
   
   outFilePath_folder = paste(pathFolderOut,"\\",dataset,sep='');
   writeKeyValueParamsFromNode(outFilePath_folder,'paramsGroupAgg.xml',top);
@@ -200,11 +186,6 @@ writeKeyValueParams <- function( dataset, pathFolderOut, features, cluster_meanI
   
   cat( 'WRITING: ', dataset,'\n' );
   printf("meanIntensitySd\t\tmean=%f\tsd=%f\n", median(features$meanIntensity), sd(features$meanIntensity) );
-  #printf("volume       \t\tmed=%f\tsd=%f\n", median(features$volume), sd(features$volume) );
-  #printf("volume       \t\tmean=%f\tsd=%f\n", clusterResults_volume$cluster$selMean, clusterResults_volume$cluster$selStdDev );
-  #printf("maxSliceArea \t\tmed=%f\tsd=%f\n", median(features$maxSliceArea), sd(features$maxSliceArea) );
-  #printf("maxSliceArea  \t\tmean=%f\tsd=%f\n", clusterResults_maxSliceArea$cluster$selMean, clusterResults_maxSliceArea$cluster$selStdDev );
-  
   
   printf("meanIntensity       \t\tmean=%f\tsd=%f\n", cluster_meanIntensity$selMean, cluster_meanIntensity$selStdDev );
   printf("volume       \t\tmean=%f\tsd=%f\n", clusterResults_extnt$cluster$selMean[1], clusterResults_extnt$cluster$selStdDev[1] );

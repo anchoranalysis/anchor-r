@@ -55,8 +55,7 @@ displayHistogramsFromManyFiles <- function( dirpath, pattern, distFromRoot, minH
   
   # We guess a column width
   numFiles = length(files);
-  #numFiles = min(10,numFiles);
-  numCols = floor(sqrt(numFiles));
+    numCols = floor(sqrt(numFiles));
   numRows = ceiling(numFiles / numCols);
   
   # We replace the pattern with empty to make the names look nicer

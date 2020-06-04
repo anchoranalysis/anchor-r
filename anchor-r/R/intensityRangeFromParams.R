@@ -16,7 +16,6 @@
 #
 
 intensityRangeFromParams <- function( params ) {
-  #intensityRange = listIntensityRange[[dataset]];
   high = clusterFromParams( params, "intensityHigh");
   highFixed = clusterFromParams( params, "intensityHighFixed");
   low = clusterFromParams( params, "intensityLow");

@@ -33,9 +33,6 @@ paramsFromXml <- function( pathFolder1, pathFolder2 ) {
     # Checks if there is actual text for the entry.
     if ("text" %in% names(entryList[i]$entry)) {
       params[[entryList[i]$entry$.attrs]]=as.double(entryList[i]$entry$text);
-    } else {
-      # If there's no text set set it as NaN
-      #params[[entryList[i]$entry$.attrs]]= NaN;
     }
   }
   
