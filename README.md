@@ -2,7 +2,7 @@
 
 Several r packages that provide utility functions for the output of the Anchor platform.
 
-Please see the (anchor-r developer documentation)[https://www.anchoranalysis.org/developer_guide_repositories_anchor_r.html] as a guide.
+Please see the [anchor-r developer documentation](https://www.anchoranalysis.org/developer_guide_repositories_anchor_r.html) as a guide.
 
 ## What is Anchor?
 
