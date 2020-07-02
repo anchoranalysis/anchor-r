@@ -15,13 +15,14 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-removeFeaturesWithNA <- function( features ) {
-  # Removes features from a feature-table with any NAs in their values
+removeFeaturesPredicate <- function( features, predicate ) {
+  # Removes any feature-columns that match a predicate
   #
   # Args:
   #   features: feature-table
+  #   predicate: a condition on a feature-column which determines whether a column is removed
   #
   # Returns:
   #   a feature-table without the removed columns 
-  removeFeaturesPredicate(features, anyNA)
+  select_if(features, Negate(predicate))
 }

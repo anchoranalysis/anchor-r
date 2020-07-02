@@ -50,7 +50,9 @@ export (
   convertStringsToFactor,
   convertStringsToInt,
   predictLabel,
-  predictSimple
+  predictSimple,
+  removeFeaturesPredicate,
+  removeNonNumericFeatures
 ) 
 importFrom("MASS", lda)
 importFrom("e1071", svm, write.svm)
@@ -58,6 +60,8 @@ importFrom("randomForest", randomForest)
 importFrom("anchor", plotHistogramFromFrequencyTable, plotHistogramFromFrequencyTableStacked, has.nan)
 importFrom("ggplot2", qplot, scale_fill_gradient2)
 importFrom("reshape2", melt)
+importFrom("magrittr","%>%")
+importFrom("dplyr",select_if)
 import("caret");
 import("gsubfn");
 

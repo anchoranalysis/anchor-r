@@ -27,6 +27,9 @@ removeFeaturesForTraining <- function( features ) {
   #
   featuresReduced = features;
   featuresReduced = removeFeaturesMatch(featuresReduced, 'id');
+  featuresReduced = removeFeaturesMatch(featuresReduced, 'image');
+  featuresReduced = removeFeaturesMatch(featuresReduced, 'unique_pixel_in_object');
+  featuresReduced = removeFeaturesMatch(featuresReduced, 'group');
   featuresReduced = removeFeaturesMatch(featuresReduced, 'image\\.');
   featuresReduced = removeFeaturesColumnNames(featuresReduced, c('objSetName','group') );
   featuresReduced = removeFeaturesMatch(featuresReduced, 'annotation');

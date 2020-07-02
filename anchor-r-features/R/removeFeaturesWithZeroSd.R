@@ -28,12 +28,6 @@ removeFeaturesWithZeroSd <- function( features ) {
   } else {
     FALSE
   }
-
-  indicesToRemove = sapply( features, isStdDevZero )
-  if (sum(indicesToRemove)>0) {
-    cat('Removing features with Zero Std-Dev:\n');
-    print( colnames(features)[indicesToRemove] );
-    features = features[,!indicesToRemove];  
-  }
-  features;
+  
+  removeFeaturesPredicate(features, isStdDevZero)
 }

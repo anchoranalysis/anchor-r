@@ -15,13 +15,13 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-removeFeaturesWithNA <- function( features ) {
-  # Removes features from a feature-table with any NAs in their values
+removeNonNumericFeatures <- function( features ) {
+  # Removes any non-numeric features from a feature-table
   #
   # Args:
   #   features: feature-table
   #
   # Returns:
-  #   a feature-table without the removed columns 
-  removeFeaturesPredicate(features, anyNA)
+  #   a feature-table without the removed columns
+  removeFeaturesPredicate(features, Negate(is.numeric) )
 }

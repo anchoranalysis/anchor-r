@@ -16,18 +16,12 @@
 #
 
 removeFeaturesWithNAN <- function( features ) {
-  # Removes features from a feature-table with any NAs in their values
+  # Removes features from a feature-table with any NANs in their values
   #
   # Args:
   #   features: feature-table
   #
   # Returns:
-  #   a feature-table without the removed columns 
-  indicesToRemove <- sapply(features, function(x) all(is.nan(x)))
-  if (sum(indicesToRemove)>0) {
-    cat('Removing features with NAN:\n');
-    print( colnames(features)[indicesToRemove] );
-    features = features[,!indicesToRemove];  
-  }
-  features; 
+  #   a feature-table without the removed columns
+  removeFeaturesPredicate(features, function(x) any(is.nan(x)))
 }

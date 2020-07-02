@@ -24,14 +24,9 @@ createObjectClassificationFrame <- function( features, classifier, pairwise=FALS
   #   4. whether the prediction matches the label (correct)
   #
   #  Expects the following features to be present to uniquely identify objects
-  #   id
+  #   image
   #   group
-  #   insidePnt.x  *
-  #   insidePnt.y  *
-  #   insidePnt.z  *
-  #   numVoxels    *
-  #
-  #  The features marked with an asterix (*) are duplicated and prepended with "first." and "second." when pairwise=TRUE
+  #   unique_pixel_in_object
   #
   # Args:
   #   features: feature-table
@@ -43,12 +38,8 @@ createObjectClassificationFrame <- function( features, classifier, pairwise=FALS
   stopifnot(nrow(features)==length(classifier$label));
   
   # Let's make a CSV file that describes the objects for anchor
-  if (pairwise==TRUE) {
-    colNames = c('id','group','objSetName', 'first.insidePnt.x','first.insidePnt.y','first.insidePnt.z','second.insidePnt.x','second.insidePnt.y','second.insidePnt.z','first.numVoxels','second.numVoxels');
-  } else {
-    colNames = c('id','group','objSetName', 'insidePnt.x','insidePnt.y','insidePnt.z','numVoxels');
-  }
-  
+  colNames = c('image','group','unique_pixel_in_object')
+
   stopIfFeaturesAreMissing( features, colNames );
   
   # Correct decisions are 0

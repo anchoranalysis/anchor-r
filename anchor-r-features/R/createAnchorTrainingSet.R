@@ -17,11 +17,13 @@
 
 
 .removeUnhelpfulFeatures <- function(features, cutoffCorrelation) {
-  features = removeFeaturesWithNA(features);
-  features = removeFeaturesWithNAN(features);
-  features = removeFeaturesWithZeroSd(features);
-  features = removeFeaturesHighlyCorrelated( features, cutoff=cutoffCorrelation );
-  features
+  features = features %>%
+    removeNonNumericFeatures() %>%
+    removeFeaturesWithNA %>% 
+    removeFeaturesWithNAN %>% 
+    removeFeaturesWithZeroSd
+  
+  removeFeaturesHighlyCorrelated( features, cutoff=cutoffCorrelation );
 }
 
 .addLabelToFeatures <- function( features, label ) {
@@ -33,8 +35,7 @@
 .checkTrainingFeatures <- function( featuresTraining, minSizeTrainingSet ) {
   
   stopifnot( !has.nan(featuresTraining) );
-  
-  
+
   if( nrow(featuresTraining)==0 ) {
     stop( sprintf('There are %d objects left in the training set. At least %d are required.',0,minSizeTrainingSet) );
   }
