@@ -1,4 +1,4 @@
-# anchor-r-nuclei
+# anchor-r-features
 
 Description: R functions to help with feature manipulation
 
